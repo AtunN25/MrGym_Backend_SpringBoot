@@ -30,7 +30,7 @@ public class AsistenciaEntity {
 
     @NotBlank
     @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
-    private String fecha_asistencai;
+    private String fecha_asistencia;
 
     @NotBlank
     @Enumerated(EnumType.STRING)
