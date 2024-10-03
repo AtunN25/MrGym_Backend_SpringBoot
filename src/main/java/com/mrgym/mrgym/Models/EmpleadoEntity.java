@@ -13,7 +13,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
-
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 // import lombok.AllArgsConstructor;
@@ -47,6 +47,7 @@ public class EmpleadoEntity {
     private String telefono_empleado;
 
     @Size(min = 8, max = 12) 
+    @NotNull
     @NotBlank
     private String dni_empleado;
 

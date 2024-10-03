@@ -2,6 +2,10 @@ package com.mrgym.mrgym.Models;
 
 import java.util.List;
 
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -12,6 +16,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -43,6 +48,7 @@ public class ClienteEntity {
     private String telefono_cliente;
 
     //por a o b motivos tiene otra nacionalidad
+    @NotNull
     @NotBlank
     @Size(min = 8, max = 12) 
     private String dni_cliente;
@@ -51,16 +57,18 @@ public class ClienteEntity {
     @Size(max = 30)
     private String email;
 
-    @NotBlank
+    //se aplicara en un futuro para ventas
     private Boolean miembro;
 
     //casada sirve para eliminar , si es necesario
     //mappedBy  se deifni como conecta cliente con membresia , por ense se conecta por el objeto clienteEntites,util para el Join
     //targetEntity ayuda a especificar a que Entidad se refiere aunque esta pueda inferirla a partir del TIpo de dato
-    @OneToMany(cascade = CascadeType.ALL,targetEntity = MembresiaEntity.class,fetch = FetchType.LAZY,mappedBy = "clienteEntities")
     //es una lista de membresia que tiene 
+    @OneToMany(cascade = CascadeType.ALL,targetEntity = MembresiaEntity.class,fetch = FetchType.LAZY,mappedBy = "clienteEntities")
+    @JsonIgnore
     private List<MembresiaEntity> membresiaEntities;
 
     @OneToMany(cascade = CascadeType.ALL,targetEntity = AsistenciaEntity.class,fetch = FetchType.LAZY,mappedBy = "clienteEntities")
+    @JsonIgnore
     private List<AsistenciaEntity> asistenciaEntities;
 }

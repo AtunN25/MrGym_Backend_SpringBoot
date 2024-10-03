@@ -4,6 +4,9 @@ package com.mrgym.mrgym.Models;
 
 import java.util.List;
 
+//import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -37,13 +40,15 @@ public class PromocionEntity {
 
     @NotBlank
     @Min(1)
-    @Size(max = 30)
-    private int duracion_meses;
+    private int duracion_promocion;
+
+    @NotBlank
+    private float costo_promocion;
 
     @NotBlank
     @Size(max = 255)
     private String descripcion;
-
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL,targetEntity = MembresiaEntity.class,fetch = FetchType.LAZY,mappedBy = "promocionEntities")
     private List<MembresiaEntity> membresiaEntities;
 }

@@ -17,18 +17,29 @@ public class ClienteService {
         return clienteRepo.findAll();
     }
 
+
     //crear un cliente
-    public ClienteEntity createCliente(ClienteEntity clienteEntity){
+    public ClienteEntity guardarCliente(ClienteEntity clienteEntity){
         return clienteRepo.save(clienteEntity);
     }
 
-    //editar un cliente - Hay duas ...
-    public ClienteEntity updateCliente(ClienteEntity clienteEntity){
-        return clienteRepo.save(clienteEntity);
+    //editar un cliente - luego se podra manejar exactametne que campos se pueden actualizar y otros no
+    public ClienteEntity updateCliente(Long id,ClienteEntity clienteDetails){
+        ClienteEntity cliente = clienteRepo.findById(id).orElseThrow();
+        cliente.setNombre_cliente(clienteDetails.getNombre_cliente());
+        cliente.setApellido_cliente(clienteDetails.getApellido_cliente());
+        cliente.setDni_cliente(clienteDetails.getDni_cliente());
+        cliente.setEmail(clienteDetails.getEmail());
+        cliente.setTelefono_cliente(clienteDetails.getTelefono_cliente());
+        cliente.setMiembro(clienteDetails.getMiembro());
+
+        return clienteRepo.save(cliente);
     }
 
     //eliminar un cliente
     public void deleteCliente(Long id){
         clienteRepo.deleteById(id);
     }
+
+    
 }
