@@ -1,4 +1,4 @@
-/*package com.mrgym.mrgym.Demo;
+package com.mrgym.mrgym.Demo;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,9 +11,9 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class DemoController {
 
-    @PostMapping(value = "")
+    @PostMapping(value = "demo")
     public String welcome(){
         return "welcome fomr secure endpoint";
     }
     
-}*/
+}
