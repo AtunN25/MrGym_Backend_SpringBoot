@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.mrgym.mrgym.Models.ClienteEntity;
 import com.mrgym.mrgym.Services.ClienteService;
+
+import lombok.RequiredArgsConstructor;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,13 +20,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/cliente")
+@RequiredArgsConstructor
 public class ClienteController {
 
     @Autowired
     private ClienteService clienteService;
 
-    @GetMapping("/lista")
+    @GetMapping("/listar")
    private List<ClienteEntity> listCLientes(){
         return clienteService.getAllCLientes();
    }
