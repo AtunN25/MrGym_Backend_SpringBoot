@@ -59,6 +59,8 @@ public class ClienteEntity {
 
     //se aplicara en un futuro para ventas
     private Boolean miembro;
+    //estado del cliente 
+    private Boolean habilitado;
 
     //casada sirve para eliminar , si es necesario
     //mappedBy  se deifni como conecta cliente con membresia , por ense se conecta por el objeto clienteEntites,util para el Join
