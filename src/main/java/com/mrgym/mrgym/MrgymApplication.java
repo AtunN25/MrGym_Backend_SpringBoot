@@ -23,6 +23,7 @@ public class MrgymApplication {
 				@Override
 				public void addCorsMappings(@NonNull CorsRegistry registry) {
 					registry.addMapping("/**")
+							.allowedOrigins("http://localhost:5173")	
 							.allowedMethods("HEAD", "GET", "PUT", "POST", "DELETE", "PATCH");
 				}
 			};
