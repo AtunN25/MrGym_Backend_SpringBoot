@@ -7,6 +7,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -22,6 +23,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 
 @Data
 @AllArgsConstructor
@@ -50,6 +52,7 @@ public class ClienteEntity {
     //por a o b motivos tiene otra nacionalidad
     @NotNull
     @NotBlank
+    @Column(unique = true, nullable = false)
     @Size(min = 8, max = 12) 
     private String dni_cliente;
 

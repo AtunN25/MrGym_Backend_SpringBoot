@@ -27,7 +27,7 @@ public class DemoController {
     @Autowired
     private ClienteService clienteService;
 
-    @GetMapping(value = "listarc")
+    @GetMapping(value = "listar")
    private List<ClienteEntity> listCLientes(){
         return clienteService.getAllCLientes();
    }

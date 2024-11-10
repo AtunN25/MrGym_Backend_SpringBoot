@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import com.mrgym.mrgym.Models.ClienteEntity;
 import com.mrgym.mrgym.Repositories.ClienteRepo;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ClienteService {
@@ -19,8 +20,9 @@ public class ClienteService {
 
 
     //crear un cliente
-    public ClienteEntity guardarCliente(ClienteEntity clienteEntity){
-        return clienteRepo.save(clienteEntity);
+    public String guardarCliente(ClienteEntity clienteEntity){
+        ClienteEntity clienteGuardado = clienteRepo.save(clienteEntity);
+        return clienteGuardado.getDni_cliente();
     }
 
     //editar un cliente - luego se podra manejar exactametne que campos se pueden actualizar y otros no
@@ -41,5 +43,8 @@ public class ClienteService {
         clienteRepo.deleteById(id);
     }
 
+    public Optional<ClienteEntity> findByDniCliente(String dniCliente) {
+        return clienteRepo.findByDniCliente(dniCliente);
+    }
     
 }
