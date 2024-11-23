@@ -11,7 +11,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotBlank;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -28,11 +28,11 @@ public class AsistenciaEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_asistencia;
 
-    @NotBlank
+    
     @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
     private String fecha_asistencia;
 
-    @NotBlank
+    
     @Enumerated(EnumType.STRING)
     private TipoAsistencia tipo_asistencia;
 

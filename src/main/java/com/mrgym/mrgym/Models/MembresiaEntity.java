@@ -16,11 +16,10 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
-import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -38,24 +37,22 @@ public class MembresiaEntity {
     private Long id_membresia;
 
     @NotNull
-    @NotBlank
+   
     @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
     private LocalDate fecha_inicio;
 
     @NotNull
-    @NotBlank
     @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
     private LocalDate fecha_final;
 
     @NotNull
-    @NotBlank
     @Min(1)
+    @Max(30)
     @Positive
-    @Size(max = 30)
     private int duracion_meses;
 
     //problemas con costo mensual
-    @NotBlank
+    
     @Positive
     private float costo_mensual;
     

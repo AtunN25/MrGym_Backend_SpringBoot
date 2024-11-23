@@ -20,12 +20,12 @@ public class ClienteService {
 
 
     //crear un cliente
-    public String guardarCliente(ClienteEntity clienteEntity){
-        ClienteEntity clienteGuardado = clienteRepo.save(clienteEntity);
-        return clienteGuardado.getDni_cliente();
+    public ClienteEntity guardarCliente(ClienteEntity clienteEntity){
+    
+        return clienteRepo.save(clienteEntity);
     }
 
-    //editar un cliente - luego se podra manejar exactametne que campos se pueden actualizar y otros no
+   
     public ClienteEntity updateCliente(Long id,ClienteEntity clienteDetails){
         ClienteEntity cliente = clienteRepo.findById(id).orElseThrow();
         cliente.setNombre_cliente(clienteDetails.getNombre_cliente());

@@ -37,7 +37,7 @@ public class ClienteController {
    }
 
    @PostMapping("/agregar")
-   private String agregarCliente(@RequestBody ClienteEntity clienteEntity){
+   private ClienteEntity agregarCliente(@RequestBody ClienteEntity clienteEntity){
           return clienteService.guardarCliente(clienteEntity);
    }
 
