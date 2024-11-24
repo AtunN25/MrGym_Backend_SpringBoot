@@ -38,10 +38,14 @@ public class ClienteService {
         return clienteRepo.save(cliente);
     }
 
-    //eliminar un cliente
-    public void deleteCliente(Long id){
+    //eliminar un cliente - se usa el la propiedad des habilitado 
+    public void deleteCliente(Long id) {
+        if (!clienteRepo.existsById(id)) {
+            throw new RuntimeException("Cliente con id " + id + " no encontrado.");
+        }
         clienteRepo.deleteById(id);
     }
+    
 
     public Optional<ClienteEntity> findByDniCliente(String dniCliente) {
         return clienteRepo.findByDniCliente(dniCliente);

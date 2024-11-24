@@ -60,9 +60,10 @@ public class ClienteEntity {
     @Size(max = 30)
     private String email;
 
-    //se aplicara en un futuro para ventas
+    //indica si el cliente esta activo aun 
     private Boolean miembro;
-    //estado del cliente 
+
+    //estado del cliente ,se aplicara en un futuro para ventas
     private Boolean habilitado;
 
     //casada sirve para eliminar , si es necesario
