@@ -34,6 +34,7 @@ public class ClienteService {
         cliente.setEmail(clienteDetails.getEmail());
         cliente.setTelefono_cliente(clienteDetails.getTelefono_cliente());
         cliente.setMiembro(clienteDetails.getMiembro());
+        cliente.setHabilitado(clienteDetails.getHabilitado());
 
         return clienteRepo.save(cliente);
     }
