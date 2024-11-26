@@ -1,5 +1,7 @@
 package com.mrgym.mrgym.Services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +24,11 @@ public class MembresiaService {
     
     @Autowired
     private PromocionRepo promocionRepo;
+
+
+    public List<MembresiaEntity> getAllMembresia(){
+        return membresiaRepo.findAll();
+    }
 
     public MembresiaDto createMembresia(MembresiaDto membresiaDTO) {
         // Verificar si los datos de cliente y promoción son válidos

@@ -38,11 +38,11 @@ public class MembresiaEntity {
 
     @NotNull
    
-    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate fecha_inicio;
 
     @NotNull
-    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate fecha_final;
 
     @NotNull

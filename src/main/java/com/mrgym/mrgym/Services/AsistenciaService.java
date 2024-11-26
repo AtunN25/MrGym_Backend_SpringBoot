@@ -1,5 +1,7 @@
 package com.mrgym.mrgym.Services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +26,10 @@ public class AsistenciaService {
     @Autowired
     private EmpleadoRepo empleadoRepo;
 
+    public List<AsistenciaEntity> getAllAsistencia(){
+        return asistenciaRepo.findAll();
+    }
+
     
     public AsistenciaEntity createAsistencia(AsistenciaDto asistenciaDTO) {
         // Buscar el cliente y empleado por su ID
@@ -43,4 +49,6 @@ public class AsistenciaService {
         
         return asistenciaRepo.save(asistenciaEntity);
     }
+
+
 }
