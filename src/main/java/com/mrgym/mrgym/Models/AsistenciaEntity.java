@@ -2,6 +2,8 @@ package com.mrgym.mrgym.Models;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -42,7 +44,9 @@ public class AsistenciaEntity {
     private ClienteEntity clienteEntities;
 
     @ManyToOne(targetEntity = EmpleadoEntity.class)
+    
     @JoinColumn(name = "fk_empleado", referencedColumnName = "id_empleado")
+    @JsonIgnore
     //este atributo seria la clave forean de CLiente
     private EmpleadoEntity empleadoEntity;
 
